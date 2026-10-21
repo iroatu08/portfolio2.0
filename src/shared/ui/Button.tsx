@@ -56,7 +56,7 @@ export function Button(props: ButtonProps): React.JSX.Element {
 
   const { type = 'button', ...rest } = props as ButtonAsButton
   return (
-    <button type={type} className={classes} {...rest}>
+    <button {...rest} type={type} className={classes}>
       {children}
     </button>
   )

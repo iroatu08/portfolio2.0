@@ -11,6 +11,7 @@ import { CameraRig } from './CameraRig'
 import { MemoryMatch } from './games/MemoryMatch'
 import { ReactionTimer } from './games/ReactionTimer'
 import { ClickDodge } from './games/ClickDodge'
+import { DiscoveryGames } from './games/DiscoveryGames'
 import { useDocumentTitle } from '@/shared/hooks/useDocumentTitle'
 
 type ActiveGame = 'memory' | 'reaction' | 'dodge' | null
@@ -20,6 +21,15 @@ function prefersReducedMotion(): boolean {
 }
 
 export function PlayPage(): React.JSX.Element {
+  return (
+    <div className="space-y-8">
+      <DiscoveryGames />
+      <PlayLab />
+    </div>
+  )
+}
+
+function PlayLab(): React.JSX.Element {
   useDocumentTitle('Play Lab | Iroatu Chibuzor Prince')
   const navigate = useNavigate()
   const [projects, setProjects] = useState<Project[]>([])
