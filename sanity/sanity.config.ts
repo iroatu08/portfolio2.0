@@ -1,8 +1,9 @@
-import { schemaTypes } from './schemas'
+import {projectId, dataset} from '../portfolio/project'
+import {schemaTypes} from '../portfolio/schemaTypes'
 
 /**
- * Plug these schema types into a Sanity Studio project:
- * `npm create sanity@latest` then import `schemaTypes` from `./schemas`.
+ * Studio lives in `portfolio/` (created with `npm create sanity@latest`).
+ * Run it with: `cd portfolio && npm run dev`
  *
  * Env for the Vite app:
  * - VITE_SANITY_PROJECT_ID
@@ -13,5 +14,7 @@ import { schemaTypes } from './schemas'
 export const sanityStudioHint = {
   name: 'iroatu-portfolio',
   title: 'Iroatu Portfolio',
+  projectId,
+  dataset,
   schemaTypes,
 }

@@ -10,8 +10,8 @@ export const siteSettings: SiteSettings = {
   aboutPortraitUrl: '/portraits/about.jpg',
   playPortraitUrl: '/portraits/play.jpg',
   socials: [
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/' },
-    { label: 'GitHub', href: 'https://github.com/' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/princeiroatu/' },
+    { label: 'GitHub', href: 'https://github.com/iroatu08' },
     { label: 'Email', href: 'mailto:iroatu7@gmail.com' },
   ],
   nextFocus: 'Next stop: AI engineering & leadership.',

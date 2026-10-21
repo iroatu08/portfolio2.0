@@ -19,12 +19,14 @@ export function ProjectCover({
       className={`relative overflow-hidden bg-surface-raised ${aspectClassName}`}
       style={{ background: coverGradient }}
     >
-      <img
-        src={coverImageUrl}
-        alt={`${title} screenshot`}
-        className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-        loading="lazy"
-      />
+      {coverImageUrl ? (
+        <img
+          src={coverImageUrl}
+          alt={`${title} screenshot`}
+          className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+          loading="lazy"
+        />
+      ) : null}
       <div
         className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/5"
         aria-hidden="true"

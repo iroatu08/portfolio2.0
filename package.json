@@ -5,9 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:studio": "npm run dev --prefix portfolio",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:cms": "node --test tests/cms.test.mjs",
+    "build:studio": "npm run build --prefix portfolio"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

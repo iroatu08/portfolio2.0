@@ -11,7 +11,9 @@ export function ProjectDetailPage(): React.JSX.Element {
   const { slug } = useParams<{ slug: string }>()
   const [project, setProject] = useState<Project | null | undefined>(undefined)
   useDocumentTitle(
-    project ? `${project.title} | Iroatu Chibuzor Prince` : 'Project | Iroatu Chibuzor Prince',
+    project
+      ? `${project.title} | Iroatu Chibuzor Prince`
+      : 'Project | Iroatu Chibuzor Prince',
   )
 
   useEffect(() => {
@@ -66,11 +68,13 @@ export function ProjectDetailPage(): React.JSX.Element {
           className="aspect-[16/9] w-full overflow-hidden border-b border-border"
           style={{ background: project.coverGradient }}
         >
-          <img
-            src={project.coverImageUrl}
-            alt={`${project.title} screenshot`}
-            className="h-full w-full object-cover object-top"
-          />
+          {project.coverImageUrl ? (
+            <img
+              src={project.coverImageUrl}
+              alt={`${project.title} screenshot`}
+              className="h-full w-full object-cover object-top"
+            />
+          ) : null}
         </div>
         <div className="space-y-3 p-6 md:p-8">
           <span className="text-xs font-semibold uppercase tracking-wider text-lime">
@@ -82,14 +86,19 @@ export function ProjectDetailPage(): React.JSX.Element {
           <p className="text-sm text-muted">
             {project.org} · {project.role}
           </p>
-          <p className="max-w-2xl text-base leading-relaxed text-muted">{project.summary}</p>
+          <p className="max-w-2xl text-base leading-relaxed text-muted">
+            {project.summary}
+          </p>
         </div>
       </header>
 
       <Panel className="space-y-4 p-6 md:p-8">
         <h2 className="font-display text-xl font-semibold">Overview</h2>
         {project.body.map((paragraph) => (
-          <p key={paragraph.slice(0, 32)} className="text-sm leading-relaxed text-muted">
+          <p
+            key={paragraph.slice(0, 32)}
+            className="text-sm leading-relaxed text-muted"
+          >
             {paragraph}
           </p>
         ))}
@@ -107,7 +116,13 @@ export function ProjectDetailPage(): React.JSX.Element {
       {project.links.length > 0 && (
         <div className="flex flex-wrap gap-3">
           {project.links.map((link) => (
-            <Button key={link.href} href={link.href} target="_blank" rel="noreferrer" variant="outline">
+            <Button
+              key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="noreferrer"
+              variant="outline"
+            >
               {link.label} ↗
             </Button>
           ))}

@@ -1,7 +1,12 @@
-import { article } from './article'
-import { project } from './project'
-import { siteSettings } from './siteSettings'
-import { skill } from './skill'
-import { testimonial } from './testimonial'
-
-export const schemaTypes = [siteSettings, project, article, testimonial, skill]
+/**
+ * Schema source of truth lives in the Studio package (`portfolio/schemaTypes`).
+ * Re-exported here for docs and any tooling that expects `sanity/schemas`.
+ */
+export {
+  article,
+  project,
+  schemaTypes,
+  siteSettings,
+  skill,
+  testimonial,
+} from '../../portfolio/schemaTypes'
