@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { socialProfiles } from '@/shared/socials'
 
 const links = [
   { to: '/about', label: 'About' },
@@ -45,15 +46,18 @@ export function SiteNav(): React.JSX.Element {
           >
             Discuss
           </NavLink>
-          <a
-            href="https://github.com/"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="GitHub"
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-surface text-muted transition-colors hover:text-lime"
-          >
-            <CodeIcon />
-          </a>
+          {socialProfiles.map((social) => (
+            <a
+              key={social.label}
+              href={social.href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={social.label}
+              className="flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-surface text-muted transition-colors hover:text-lime"
+            >
+              {social.label === 'GitHub' ? <CodeIcon /> : <LinkedInIcon />}
+            </a>
+          ))}
         </div>
       </div>
     </header>
@@ -83,6 +87,14 @@ function CodeIcon(): React.JSX.Element {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+    </svg>
+  )
+}
+
+function LinkedInIcon(): React.JSX.Element {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3.5 9h3v12h-3V9Zm6 0h3v1.6c.7-1.1 1.8-1.9 3.5-1.9 3.2 0 4.5 2 4.5 5.4V21h-3v-6.4c0-1.9-.6-3.1-2.2-3.1-1.8 0-2.8 1.2-2.8 3.4V21h-3V9Z" />
     </svg>
   )
 }

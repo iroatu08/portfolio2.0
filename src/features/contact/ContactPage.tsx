@@ -3,6 +3,7 @@ import { getSiteSettings } from '@/shared/cms/queries'
 import type { SiteSettings } from '@/shared/cms/types'
 import { Button } from '@/shared/ui/Button'
 import { Panel } from '@/shared/ui/Panel'
+import { socialProfiles } from '@/shared/socials'
 
 import { useDocumentTitle } from '@/shared/hooks/useDocumentTitle'
 
@@ -53,8 +54,8 @@ export function ContactPage(): React.JSX.Element {
           <Button href={`mailto:${settings.email}`} variant="outline">
             Send email
           </Button>
-          {settings.socials
-            .filter((s) => s.label !== 'Email')
+          {[...socialProfiles, ...(settings.socials ?? [])
+            .filter((s) => !['email', 'github', 'linkedin'].includes(s.label.trim().toLowerCase()))]
             .map((social) => (
               <Button
                 key={social.label}
